@@ -1,0 +1,20 @@
+{
+  "ProtocolConfiguration": {
+    "Magic": 11151,
+    "AddressVersion": 23,
+    "SecondsPerBlock": 1,
+    "LowPriorityThreshold": 0.001,
+    "StandbyValidators": [
+       "020ef8767aeb514780a8fb0a21f2568c521eb1e633a161dcdc39e78745762cb843"
+    ],
+    "SeedList": [
+      "localhost:20333"
+    ],
+    "SystemFee": {
+      "EnrollmentTransaction": 1000,
+      "IssueTransaction": 500,
+      "PublishTransaction": 500,
+      "RegisterTransaction": 10000
+    }
+  }
+}

@@ -4,7 +4,7 @@ mv /opt/node/neo-cli/config.privatenet.json /opt/node/neo-cli/config.json
 mv /opt/node/neo-cli/protocol.privatenet.json /opt/node/neo-cli/protocol.json
 cd /opt/node/neo-cli/
 screen -dmS node dotnet neo-cli.dll --log --rpc
-
+screen -dmS o3explorer /opt/node/./o3explorer -node=http://localhost:30333
 #wait 5 seconds
 sleep 5
 

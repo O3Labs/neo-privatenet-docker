@@ -27,6 +27,10 @@ RUN wget -O /opt/RpcNep5Tracker.zip "https://github.com/O3Labs/o3-explorer-plugi
 
 RUN wget -O /opt/ExplorerRPC.zip "https://github.com/O3Labs/o3-explorer-plugins/releases/download/$NEO_CLI_VERSION/ExplorerRPC.zip" && unzip -q -d /opt/node/neo-cli /opt/ExplorerRPC.zip && rm /opt/ExplorerRPC.zip
 
+
+RUN wget -O /opt/o3explorer.zip "https://github.com/O3Labs/neo-privatenet-docker/releases/download/v0.1/o3explorer.zip" && unzip -q -d /opt/node /opt/o3explorer.zip && rm /opt/o3explorer.zip
+
+
 ADD ./configs/* /opt/node/neo-cli/
 
 ADD ./wallets/* /opt/node/neo-cli/

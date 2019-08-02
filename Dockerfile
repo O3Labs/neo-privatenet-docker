@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk
+FROM microsoft/dotnet:2.1.4-runtime-bionic
 
 ARG NEO_CLI_VERSION="2.10.2"
 
@@ -13,7 +13,17 @@ RUN apt-get update && apt-get install -y \
     wget \
     expect \
     screen \
-    zip
+    zip \
+    curl \
+    git-core \
+    python3.6 \
+    python3.6-dev \
+    python3.6-venv \
+    python3-pip \
+    libssl-dev \
+    vim \
+    man
+
 
 RUN apt-get install -y apt-transport-https
 
@@ -30,10 +40,20 @@ RUN wget -O /opt/ExplorerRPC.zip "https://github.com/O3Labs/o3-explorer-plugins/
 
 RUN wget -O /opt/o3explorer.zip "https://github.com/O3Labs/neo-privatenet-docker/releases/download/v0.1/o3explorer.zip" && unzip -q -d /opt/node /opt/o3explorer.zip && rm /opt/o3explorer.zip
 
+RUN wget -O /opt/neo-python.zip "https://github.com/CityOfZion/neo-python/archive/v0.8.4.zip" && unzip -q -d /opt/node /opt/neo-python.zip && rm /opt/neo-python.zip
+
+RUN mv /opt/node/neo-python-0.8.4 /opt/node/neo-python
+WORKDIR /opt/node/neo-python
+RUN pip3 install -e .
+
+ADD ./configs/protocol.privatenet.json /opt/node/neo-python/neo/data
+RUN mv /opt/node/neo-python/neo/data/protocol.privatenet.json /opt/node/neo-python/neo/data/protocol.privnet.json
 
 ADD ./configs/* /opt/node/neo-cli/
 
 ADD ./wallets/* /opt/node/neo-cli/
+
+ADD ./wallets/privnet.wallet /opt/node/neo-python/wallets/
 
 ADD ./scripts/run.sh /opt/
 

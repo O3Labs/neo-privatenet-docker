@@ -6,7 +6,7 @@ cd /opt/node/neo-cli/
 screen -dmS node dotnet neo-cli.dll --log --rpc
 screen -dmS o3explorer /opt/node/./o3explorer -node=http://localhost:30333
 #wait 5 seconds
-sleep 10
+sleep 5
 
 #Send all 100,000,000 from IssueTransaction to AVFobKv2y7i66gbGPAGDT67zv1RMQQj9GB
 curl --request POST \
@@ -20,6 +20,6 @@ curl --request POST \
 }'
 
 cd /opt/node/neo-python/
-np-prompt -p
+np-prompt -p -v
 
 sleep infinity

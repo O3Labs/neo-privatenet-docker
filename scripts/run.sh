@@ -19,7 +19,7 @@ curl --request POST \
   "id": 1
 }'
 
-# cd /opt/node/neo-python/
-# np-prompt -p
+cd /opt/node/neo-python/
+np-prompt -p
 
 sleep infinity

@@ -5,7 +5,7 @@ Aiming to make it easier for developers to run NEO blockchain network locally fo
 It will spin up a RPC-enabled node in a single-node consensus mode.
 
 ## Build & Run
-In your terminal, execute the command"
+In your terminal, execute the command
 `make`
 
 ### Address contains all 100,000,000 NEO
